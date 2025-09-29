@@ -3,14 +3,14 @@ import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 
 const Navbar: React.FC = () => {
-  const { user, isAuthenticated, login, logout } = useAuth();
+  const { user, isAuthenticated, logout, login } = useAuth();
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
 
   const navItems = [
-    { path: '/', label: 'Dashboard', icon: '🏠' },
-    { path: '/map', label: 'Map', icon: '🗺️' },
+    { path: '/', label: 'Map', icon: '🗺️' },
+    { path: '/dashboard', label: 'Dashboard', icon: '🏠' },
     { path: '/forum', label: 'Forum', icon: '💬' },
     { path: '/resources', label: 'Resources', icon: '📚' },
   ];
@@ -21,8 +21,8 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
-              <span className="text-2xl">🤝</span>
-              <span className="font-bold text-xl text-gray-900">PM Network</span>
+              <span className="text-2xl">🗺️</span>
+              <span className="font-bold text-xl text-gray-900">MapPM</span>
             </Link>
           </div>
 

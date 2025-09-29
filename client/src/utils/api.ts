@@ -1,9 +1,24 @@
 import axios from 'axios';
+import { fetchAuthSession } from 'aws-amplify/auth';
 
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 
 const api = axios.create({
   baseURL: API_URL,
+});
+
+// Add auth token to requests automatically
+api.interceptors.request.use(async (config) => {
+  try {
+    const session = await fetchAuthSession();
+    const token = session.tokens?.accessToken?.toString();
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+  } catch (error) {
+    // User not authenticated, proceed without token
+  }
+  return config;
 });
 
 export const setAuthToken = (token: string) => {

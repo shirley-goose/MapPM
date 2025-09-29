@@ -33,7 +33,7 @@ import userRoutes from './routes/users';
 // Routes
 app.get('/api/health', (req, res) => {
   res.json({
-    message: 'PM Network API is running!',
+    message: 'MapPM API is running!',
     timestamp: new Date().toISOString()
   });
 });

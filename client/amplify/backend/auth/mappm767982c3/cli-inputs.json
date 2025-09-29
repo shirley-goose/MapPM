@@ -1,0 +1,128 @@
+{
+  "version": "1",
+  "cognitoConfig": {
+    "identityPoolName": "mappm767982c3_identitypool_767982c3",
+    "allowUnauthenticatedIdentities": false,
+    "resourceNameTruncated": "mappm767982c3",
+    "userPoolName": "mappm767982c3_userpool_767982c3",
+    "autoVerifiedAttributes": [
+      "email"
+    ],
+    "mfaConfiguration": "OFF",
+    "mfaTypes": [
+      "SMS Text Message"
+    ],
+    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Your verification code",
+    "emailVerificationMessage": "Your verification code is {####}",
+    "defaultPasswordPolicy": false,
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [],
+    "requiredAttributes": [
+      "email"
+    ],
+    "aliasAttributes": [],
+    "userpoolClientGenerateSecret": false,
+    "userpoolClientRefreshTokenValidity": "7",
+    "userpoolClientWriteAttributes": [
+      "email"
+    ],
+    "userpoolClientReadAttributes": [
+      "email"
+    ],
+    "userpoolClientLambdaRole": "mappm7767982c3_userpoolclient_lambda_role",
+    "userpoolClientSetAttributes": false,
+    "sharedId": "767982c3",
+    "resourceName": "mappm767982c3",
+    "authSelections": "identityPoolAndUserPool",
+    "useDefault": "manual",
+    "hostedUI": true,
+    "usernameAttributes": [
+      "email"
+    ],
+    "hostedUIDomainName": "mappm767982c3-767982c3",
+    "authProvidersUserPool": [],
+    "hostedUIProviderMeta": "[]",
+    "userPoolGroupList": [],
+    "serviceName": "Cognito",
+    "usernameCaseSensitive": false,
+    "useEnabledMfas": true,
+    "authRoleArn": {
+      "Fn::GetAtt": [
+        "AuthRole",
+        "Arn"
+      ]
+    },
+    "unauthRoleArn": {
+      "Fn::GetAtt": [
+        "UnauthRole",
+        "Arn"
+      ]
+    },
+    "breakCircularDependency": true,
+    "dependsOn": [
+      {
+        "category": "function",
+        "resourceName": "mappm767982c3CreateAuthChallenge",
+        "triggerProvider": "Cognito",
+        "attributes": [
+          "Arn",
+          "Name"
+        ]
+      },
+      {
+        "category": "function",
+        "resourceName": "mappm767982c3CustomMessage",
+        "triggerProvider": "Cognito",
+        "attributes": [
+          "Arn",
+          "Name"
+        ]
+      },
+      {
+        "category": "function",
+        "resourceName": "mappm767982c3DefineAuthChallenge",
+        "triggerProvider": "Cognito",
+        "attributes": [
+          "Arn",
+          "Name"
+        ]
+      },
+      {
+        "category": "function",
+        "resourceName": "mappm767982c3VerifyAuthChallengeResponse",
+        "triggerProvider": "Cognito",
+        "attributes": [
+          "Arn",
+          "Name"
+        ]
+      }
+    ],
+    "thirdPartyAuth": false,
+    "userPoolGroups": false,
+    "adminQueries": false,
+    "triggers": {
+      "CreateAuthChallenge": [
+        "captcha-create-challenge"
+      ],
+      "CustomMessage": [
+        "verification-link"
+      ],
+      "DefineAuthChallenge": [
+        "captcha-define-challenge"
+      ],
+      "VerifyAuthChallengeResponse": [
+        "captcha-verify"
+      ]
+    },
+    "verificationBucketName": "mappm767982c3verificationbucket",
+    "authProviders": [],
+    "parentStack": {
+      "Ref": "AWS::StackId"
+    },
+    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"CreateAuthChallenge\",\n    \"lambdaFunctionName\": \"mappm767982c3CreateAuthChallenge\"\n  },\n  {\n    \"triggerType\": \"CustomMessage\",\n    \"lambdaFunctionName\": \"mappm767982c3CustomMessage\"\n  },\n  {\n    \"triggerType\": \"DefineAuthChallenge\",\n    \"lambdaFunctionName\": \"mappm767982c3DefineAuthChallenge\"\n  },\n  {\n    \"triggerType\": \"VerifyAuthChallengeResponse\",\n    \"lambdaFunctionName\": \"mappm767982c3VerifyAuthChallengeResponse\"\n  }\n]",
+    "permissions": [],
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://YOUR_CLOUDFRONT_DISTRIBUTION_ID.cloudfront.net/\"],\"LogoutURLs\":[\"https://YOUR_CLOUDFRONT_DISTRIBUTION_ID.cloudfront.net/\"]}"
+  }
+}

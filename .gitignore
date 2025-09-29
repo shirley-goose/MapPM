@@ -6,6 +6,17 @@ server/dist/
 # Environment variables
 client/.env
 server/.env
+.env
+.env.local
+.env.production
+
+# AWS & Amplify sensitive files
+client/amplify/#current-cloud-backend/
+client/amplify/backend/awscloudformation/
+client/amplify/team-provider-info.json
+client/src/aws-exports.js
+**/amplify/team-provider-info.json
+amplify/team-provider-info.json
 
 # Build outputs
 client/build/

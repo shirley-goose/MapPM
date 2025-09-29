@@ -1,0 +1,35 @@
+service: mappm-api
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: ${opt:stage, 'dev'}
+  region: us-east-1
+  environment:
+    NODE_ENV: ${self:provider.stage}
+    MONGODB_URI: ${env:MONGODB_URI}
+    AUTH0_DOMAIN: ${env:AUTH0_DOMAIN}
+    AUTH0_AUDIENCE: ${env:AUTH0_AUDIENCE}
+    CLIENT_URL: ${env:CLIENT_URL}
+
+functions:
+  api:
+    handler: dist/lambda.handler
+    events:
+      - httpApi:
+          path: /{proxy+}
+          method: ANY
+      - httpApi:
+          path: /
+          method: ANY
+    timeout: 30
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
+
+custom:
+  serverless-offline:
+    httpPort: 5000

@@ -9,8 +9,8 @@ interface ProfileSetupProps {
 
 const ProfileSetup: React.FC<ProfileSetupProps> = ({ user, onComplete }) => {
   const [formData, setFormData] = useState({
-    status: '' as UserStatus,
-    experience: '' as ExperienceLevel,
+    status: 'current-employee' as UserStatus,
+    experience: 'pm' as ExperienceLevel,
     pmFocus: [] as PMFocus[],
     industry: [] as Industry[],
     companyStage: [] as CompanyStage[],
@@ -37,14 +37,19 @@ const ProfileSetup: React.FC<ProfileSetupProps> = ({ user, onComplete }) => {
   useEffect(() => {
     if (user) {
       setFormData({
-        status: user.status || '',
-        experience: user.experience || '',
+        status: user.status || 'current-employee',
+        experience: user.experience || 'pm',
         pmFocus: user.pmFocus || [],
         industry: user.industry || [],
         companyStage: user.companyStage || [],
         skills: user.skills || [],
         interests: user.interests || [],
-        location: user.location || formData.location,
+        location: user.location ? {
+          country: user.location.country || 'United States',
+          state: user.location.state || '',
+          city: user.location.city || '',
+          isVisible: user.location.isVisible ?? true,
+        } : formData.location,
         privacy: user.privacy || formData.privacy,
       });
     }
@@ -122,12 +127,15 @@ const ProfileSetup: React.FC<ProfileSetupProps> = ({ user, onComplete }) => {
   ];
 
   const handleMultiSelect = (field: string, value: string) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: prev[field as keyof typeof prev].includes(value)
-        ? (prev[field as keyof typeof prev] as string[]).filter((item: string) => item !== value)
-        : [...(prev[field as keyof typeof prev] as string[]), value]
-    }));
+    setFormData(prev => {
+      const currentArray = prev[field as keyof typeof prev] as string[];
+      return {
+        ...prev,
+        [field]: currentArray.includes(value)
+          ? currentArray.filter((item: string) => item !== value)
+          : [...currentArray, value]
+      };
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {

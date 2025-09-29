@@ -1,7 +1,7 @@
 // User Profile Types
 export interface UserProfile {
   id: string;
-  auth0Id: string;
+  cognitoId: string;
   email: string;
   name: string;
   avatar?: string;
@@ -14,6 +14,7 @@ export interface UserProfile {
   interests: Interest[];
   location?: UserLocation;
   privacy: PrivacySettings;
+  isProfileComplete: boolean;
   createdAt: Date;
   updatedAt: Date;
 }
