@@ -215,8 +215,8 @@ amplify publish
 
 ### Required for Full Deployment
 ```bash
-# Google Maps (CONFIGURED)
-REACT_APP_GOOGLE_MAPS_API_KEY=AIzaSyBwRqrbkINhWM9SbPfEx0-OXEqWxlWbREU
+# Google Maps API Key (get from Google Cloud Console)
+REACT_APP_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
 
 # MongoDB (for backend)
 MONGODB_URI=your_mongodb_connection_string

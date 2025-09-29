@@ -5,6 +5,7 @@ server/dist/
 
 # Environment variables
 client/.env
+client/.env.cloudflare
 server/.env
 .env
 .env.local
