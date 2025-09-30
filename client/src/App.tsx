@@ -4,7 +4,7 @@ import MainApp from './components/MainApp';
 
 function App() {
   return (
-    <Router basename="/mappm">
+    <Router basename="/MapPM">
       <div className="min-h-screen bg-gray-50">
         <MainApp />
       </div>

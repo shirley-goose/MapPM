@@ -1,3 +1,3 @@
-# Cloudflare Pages redirects for React Router SPA
+# GitHub Pages redirects for React Router SPA
 # All routes should serve the index.html for client-side routing
-/mappm/* /mappm/index.html 200
+/MapPM/* /MapPM/index.html 200

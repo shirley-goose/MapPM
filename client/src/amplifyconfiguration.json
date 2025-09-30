@@ -16,8 +16,8 @@
       "profile",
       "aws.cognito.signin.user.admin"
     ],
-    "redirectSignIn": "https://shirley-goose.github.io/mappm/",
-    "redirectSignOut": "https://shirley-goose.github.io/mappm/",
+    "redirectSignIn": "https://shirley-goose.github.io/MapPM/",
+    "redirectSignOut": "https://shirley-goose.github.io/MapPM/",
     "responseType": "code"
   },
   "federationTarget": "COGNITO_USER_POOLS",
