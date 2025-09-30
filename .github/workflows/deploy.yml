@@ -32,14 +32,19 @@ jobs:
       run: |
         cd client
         npm ci
+        echo "Dependencies installed successfully"
 
     - name: Build application
       env:
         REACT_APP_GOOGLE_MAPS_API_KEY: ${{ secrets.REACT_APP_GOOGLE_MAPS_API_KEY }}
         PUBLIC_URL: /mappm
+        CI: false
       run: |
         cd client
+        echo "Starting build process..."
+        echo "Google Maps API Key is set: $([[ -n "$REACT_APP_GOOGLE_MAPS_API_KEY" ]] && echo "Yes" || echo "No")"
         npm run build
+        echo "Build completed successfully"
 
     - name: Setup Pages
       uses: actions/configure-pages@v4
