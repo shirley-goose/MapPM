@@ -39,6 +39,7 @@ jobs:
       working-directory: ./client
       env:
         REACT_APP_GOOGLE_MAPS_API_KEY: ${{ secrets.REACT_APP_GOOGLE_MAPS_API_KEY }}
+        PUBLIC_URL: /MapPM
         CI: false
       run: npm run build
 
