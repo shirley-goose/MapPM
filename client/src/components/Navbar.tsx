@@ -21,8 +21,11 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
-              <span className="text-2xl">🗺️</span>
-              <span className="font-bold text-xl text-gray-900">MapPM</span>
+              <img
+                src="/MapPM_words.png"
+                alt="MapPM - Product Manager Networking Platform"
+                className="h-8 w-auto"
+              />
             </Link>
           </div>
 
