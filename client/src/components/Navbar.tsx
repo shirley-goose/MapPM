@@ -20,13 +20,13 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center space-x-2">
+            <Link to="/" className="flex items-center space-x-3">
               <img
-                src="/logo192.png"
+                src="/icon.png"
                 alt="MapPM Logo"
-                className="h-8 w-8"
+                className="h-10 w-10"
               />
-              <div className="font-bold text-xl">
+              <div className="font-bold text-3xl">
                 <span className="text-blue-900">Map</span>
                 <span className="text-green-400">PM</span>
               </div>
