@@ -22,10 +22,14 @@ const Navbar: React.FC = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
               <img
-                src="/MapPM_words.png"
-                alt="MapPM - Product Manager Networking Platform"
-                className="h-8 w-auto"
+                src="/logo192.png"
+                alt="MapPM Logo"
+                className="h-8 w-8"
               />
+              <div className="font-bold text-xl">
+                <span className="text-blue-900">Map</span>
+                <span className="text-green-400">PM</span>
+              </div>
             </Link>
           </div>
 
