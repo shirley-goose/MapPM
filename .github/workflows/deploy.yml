@@ -3,8 +3,6 @@ name: Deploy MapPM to GitHub Pages
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   deploy:
@@ -17,7 +15,7 @@ jobs:
 
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}mappm
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
     - name: Checkout repository
