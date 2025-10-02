@@ -9,7 +9,7 @@ import amplifyconfig from './amplifyconfiguration.json';
 const isLocalhost = window.location.hostname === 'localhost';
 const redirectUrl = isLocalhost
   ? 'http://localhost:3000/'
-  : 'https://YOUR_CLOUDFRONT_DISTRIBUTION_ID.cloudfront.net/';
+  : `https://${window.location.hostname}/`;
 
 const updatedConfig = {
   ...amplifyconfig,

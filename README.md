@@ -4,7 +4,7 @@ A web application for connecting Product Managers across North America. MapPM pr
 
 ## 🚀 Live Application
 
-**Production URL**: https://YOUR_CLOUDFRONT_DISTRIBUTION_ID.cloudfront.net/
+**Production URL**: Deploy your own instance following the instructions below to get your CloudFront URL
 
 ## ✨ Features
 
@@ -136,8 +136,8 @@ Edit `client/src/amplifyconfiguration.json`:
         "oauth": {
           "domain": "your-cognito-domain.auth.us-east-1.amazoncognito.com",
           "scopes": ["email", "openid"],
-          "redirectSignIn": ["http://localhost:3000/", "https://your-cloudfront-url.cloudfront.net/"],
-          "redirectSignOut": ["http://localhost:3000/", "https://your-cloudfront-url.cloudfront.net/"],
+          "redirectSignIn": ["http://localhost:3000/", "https://YOUR_CLOUDFRONT_DISTRIBUTION_ID.cloudfront.net/"],
+          "redirectSignOut": ["http://localhost:3000/", "https://YOUR_CLOUDFRONT_DISTRIBUTION_ID.cloudfront.net/"],
           "responseType": "code"
         }
       }
@@ -418,6 +418,5 @@ For questions or issues, please create an issue in the GitHub repository.
 
 ---
 
-**Last Updated**: September 30, 2025
+**Last Updated**: October 2, 2025
 **Status**: MVP Complete - All core features functional
-**Live URL**: https://YOUR_CLOUDFRONT_DISTRIBUTION_ID.cloudfront.net/
