@@ -2,11 +2,11 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/MapPM",
   "dependencies": {
     "@aws-amplify/ui-react": "^6.13.0",
     "@googlemaps/js-api-loader": "^1.16.10",
     "@googlemaps/react-wrapper": "^1.2.0",
+    "@supabase/supabase-js": "^2.58.0",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.3.0",

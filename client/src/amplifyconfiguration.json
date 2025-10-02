@@ -1,14 +1,14 @@
 {
   "aws_project_region": "us-east-1",
-  "aws_content_delivery_bucket": "ap-20250928205703-hostingbucket-mappm",
+  "aws_content_delivery_bucket": "YOUR_CLOUDFRONT_BUCKET",
   "aws_content_delivery_bucket_region": "us-east-1",
-  "aws_content_delivery_url": "https://YOUR_CLOUDFRONT_DISTRIBUTION_ID.cloudfront.net",
-  "aws_cognito_identity_pool_id": "us-east-1:ac688573-52c1-4c39-b61f-6b65358955f0",
+  "aws_content_delivery_url": "YOUR_CLOUDFRONT_URL",
+  "aws_cognito_identity_pool_id": "YOUR_IDENTITY_POOL_ID",
   "aws_cognito_region": "us-east-1",
-  "aws_user_pools_id": "us-east-1_pCVANYh4E",
-  "aws_user_pools_web_client_id": "1g7njc2iv3qkb54fjcnskhlvms",
+  "aws_user_pools_id": "YOUR_USER_POOL_ID",
+  "aws_user_pools_web_client_id": "YOUR_WEB_CLIENT_ID",
   "oauth": {
-    "domain": "mappm767982c3-767982c3-mappm.auth.us-east-1.amazoncognito.com",
+    "domain": "YOUR_COGNITO_DOMAIN.auth.us-east-1.amazoncognito.com",
     "scope": [
       "phone",
       "email",
@@ -16,8 +16,8 @@
       "profile",
       "aws.cognito.signin.user.admin"
     ],
-    "redirectSignIn": "https://shirley-goose.github.io/MapPM/",
-    "redirectSignOut": "https://shirley-goose.github.io/MapPM/",
+    "redirectSignIn": "YOUR_REDIRECT_URL",
+    "redirectSignOut": "YOUR_REDIRECT_URL",
     "responseType": "code"
   },
   "federationTarget": "COGNITO_USER_POOLS",

@@ -16,17 +16,18 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className="bg-white shadow-sm border-b border-gray-200">
+    <nav className="bg-white shadow-sm border-b border-gray-200" style={{border: '2px solid red'}}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center space-x-3">
+            <Link to="/" className="flex items-center space-x-3" style={{border: '1px solid blue', padding: '4px'}}>
               <img
                 src="/icon.png"
                 alt="MapPM Logo"
                 className="h-10 w-10"
+                style={{border: '1px solid orange'}}
               />
-              <div className="font-bold text-3xl">
+              <div className="font-bold text-3xl" style={{border: '1px solid green'}}>
                 <span className="text-blue-900">Map</span>
                 <span className="text-green-400">PM</span>
               </div>
@@ -38,6 +39,7 @@ const Navbar: React.FC = () => {
               {navItems.map((item) => (
                 <Link
                   key={item.path}
+                  
                   to={item.path}
                   className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     isActive(item.path)

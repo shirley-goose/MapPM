@@ -6,36 +6,13 @@ exports.handler = async (event) => {
   // Define the URL that you want the user to be directed to after verification is complete
   if (event.triggerSource === 'CustomMessage_SignUp') {
     const { codeParameter } = event.request;
-    const { region, userName } = event;
-    const { clientId } = event.callerContext;
-    const redirectUrl = `${process.env.REDIRECTURL}/?username=${userName}`;
-    const resourcePrefix = process.env.RESOURCENAME.split('CustomMessage')[0];
 
-    const hyphenRegions = [
-      'us-east-1',
-      'us-west-1',
-      'us-west-2',
-      'ap-southeast-1',
-      'ap-southeast-2',
-      'ap-northeast-1',
-      'eu-west-1',
-      'sa-east-1',
-    ];
+    const message = `${process.env.EMAILMESSAGE}
 
-    const separator = hyphenRegions.includes(region) ? '-' : '.';
+Your verification code is: ${codeParameter}
 
-    const payload = Buffer.from(
-      JSON.stringify({
-        userName,
-        redirectUrl,
-        region,
-        clientId,
-      }),
-    ).toString('base64');
-    // eslint-disable-next-line spellcheck/spell-checker
-    const bucketUrl = `http://${resourcePrefix}verificationbucket-${process.env.ENV}.s3-website${separator}${region}.amazonaws.com`;
-    const url = `${bucketUrl}/?data=${payload}&code=${codeParameter}`;
-    const message = `${process.env.EMAILMESSAGE}. \n ${url}`;
+Please enter this code on the verification page to complete your registration.`;
+
     event.response.smsMessage = message;
     event.response.emailSubject = process.env.EMAILSUBJECT;
     event.response.emailMessage = message;

@@ -22,7 +22,13 @@ const Profile: React.FC = () => {
         setUser(response.data);
         setShowSetup(!response.data.isProfileComplete);
       } catch (err: any) {
-        setError(err.response?.data?.error || 'Failed to load profile');
+        // If profile doesn't exist or API call fails, assume incomplete profile
+        if (err.response?.status === 404 || err.response?.status === 401 || !err.response) {
+          setUser(null);
+          setShowSetup(true);
+        } else {
+          setError(err.response?.data?.error || 'Failed to load profile');
+        }
       } finally {
         setLoading(false);
       }
@@ -60,12 +66,12 @@ const Profile: React.FC = () => {
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center space-x-6">
               <img
-                src={authUser?.picture || '/default-avatar.png'}
-                alt={authUser?.name}
-                className="h-24 w-24 rounded-full"
+                src={user.avatar || authUser?.picture || '/default-avatar.png'}
+                alt={user.name || authUser?.name}
+                className="h-24 w-24 rounded-full object-cover border-2 border-gray-200"
               />
               <div>
-                <h1 className="text-3xl font-bold text-gray-900">{user.name}</h1>
+                <h1 className="text-3xl font-bold text-gray-900">{user.name || authUser?.name}</h1>
                 <p className="text-gray-600">{user.email}</p>
                 <div className="flex items-center space-x-4 mt-2">
                   <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">

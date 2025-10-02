@@ -77,6 +77,7 @@ export interface UserLocation {
   country: string;
   state?: string;
   city: string;
+  zipCode?: string;
   coordinates?: {
     lat: number;
     lng: number;
